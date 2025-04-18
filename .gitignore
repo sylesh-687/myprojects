@@ -1,0 +1,25 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.backup
+*.tfvars
+.terraform/
+terraform.tfstate
+terraform.tfstate.lock.info
+
+# .terraform directories can contain sensitive data
+.terraform.lock.hcl
+
+# Ignore override files that can contain local settings
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore IDE/Editor specific files
+.vscode/
+.idea/
