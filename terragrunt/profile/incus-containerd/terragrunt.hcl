@@ -14,5 +14,5 @@ EOF
 }
 inputs={
     name="containerd"
-    instance_count=4
+    instance_count=1
 }
