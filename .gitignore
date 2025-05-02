@@ -24,3 +24,32 @@ terraform.rc
 # Ignore IDE/Editor specific files
 .vscode/
 .idea/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+# Poetry
+poetry.lock
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.idea/
+*.swp
+*.swo
+*.log
+
+# User-specific configuration files
+.env
+
+#Testing
+/htmlcov
+.tox
