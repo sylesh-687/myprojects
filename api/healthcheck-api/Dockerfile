@@ -8,7 +8,6 @@ FROM gcr.io/distroless/python3-debian12
 COPY --from=builder /install /usr/local
 COPY --from=builder /app /app
 WORKDIR /app
-
 EXPOSE 8000
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
 USER appuser
