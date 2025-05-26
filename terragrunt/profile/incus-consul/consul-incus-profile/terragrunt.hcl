@@ -1,5 +1,5 @@
 terraform {
-    source="https://github.com/sylesh-687/terraform.git//modules/incus/incus-profile?ref=s-dev"
+    source="https://github.com/sylesh-687/terraform.git//modules/incus/incus-profile?ref=${get_env("TG_GIT_BRANCH", "main")}"
 }
 
 include {
