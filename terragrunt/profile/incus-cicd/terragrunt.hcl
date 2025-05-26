@@ -1,6 +1,3 @@
-locals {
-  branch="main"
-}
 generate "provider_config" {
     path      = "provider_override.tf"
     if_exists = "overwrite_terragrunt"
