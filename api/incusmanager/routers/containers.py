@@ -1,23 +1,23 @@
 from fastapi import APIRouter
 import subprocess
-import json
+import requests_unixsocket
+
+
+INCUS_SOCKET_PATH = "/var/lib/incus/unix.socket"
+ENCODED_SOCKET_PATH = INCUS_SOCKET_PATH.replace('/', '%2F')
+BASE_URL=f"http+unix://{ENCODED_SOCKET_PATH}"
 
 router=APIRouter()
 
 @router.get("/list")
 async def list_containers():
-    process = subprocess.run(['incus', 'list', '-f', 'json'], capture_output=True, text=True)
-    containers = json.loads(process.stdout)
-    output = []
-    for c in containers:
-        name = c.get("name")
-        status = c.get("status")
-        ips = c.get("state", {}).get("network", {}).get("eth0", {}).get("addresses", [])
-        ip = next((a["address"] for a in ips if a["family"] == "inet"), None)
+    session=requests_unixsocket.Session()
+    instances_url=f"{BASE_URL}/1.0/instances"
+    response = session.get(instances_url)
+    return response.json()
 
-        output.append({
-            "name": name,
-            "ip": ip,
-            "status": status
-        })
-    return output
+
+
+
+
+
